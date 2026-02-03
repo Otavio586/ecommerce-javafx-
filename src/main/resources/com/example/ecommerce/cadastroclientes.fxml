@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+   <children>
+      <Label layoutX="191.0" layoutY="56.0" text="Cadastro de Clientes">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="87.0" fitWidth="87.0" layoutX="39.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Pictures/clientenovo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="89.0" fitWidth="87.0" layoutX="472.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Pictures/clientenovo.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="348.0" layoutY="164.0" prefHeight="25.0" prefWidth="156.0" />
+      <TextField layoutX="83.0" layoutY="164.0" prefHeight="25.0" prefWidth="156.0" />
+      <TextField layoutX="348.0" layoutY="238.0" prefHeight="25.0" prefWidth="156.0" />
+      <TextField layoutX="83.0" layoutY="238.0" prefHeight="25.0" prefWidth="156.0" />
+      <Label layoutX="83.0" layoutY="139.0" prefHeight="25.0" prefWidth="54.0" text="Nome:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="83.0" layoutY="213.0" prefHeight="25.0" prefWidth="62.0" text="Telefone:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="348.0" layoutY="139.0" prefHeight="25.0" prefWidth="54.0" text="CPF:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="348.0" layoutY="213.0" prefHeight="25.0" prefWidth="54.0" text="E-mail:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="222.0" layoutY="297.0" prefHeight="25.0" prefWidth="62.0" text="Endereço:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="222.0" layoutY="322.0" prefHeight="25.0" prefWidth="156.0" />
+   </children>
+</AnchorPane>
