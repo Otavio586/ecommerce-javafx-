@@ -41,7 +41,7 @@
       <TextField layoutX="182.0" layoutY="293.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="396.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Pictures/caixa.png" />
+            <Image url="@../../../../../../../../../Pictures/caixa.png" />
          </image>
       </ImageView>
    </children>

@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" layoutX="20.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="118.0" />
@@ -17,22 +16,22 @@
       <ImageView fitHeight="115.0" fitWidth="118.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="90.0" fitWidth="92.0" layoutX="183.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Pictures/produtonovo.png" />
+            <Image url="@../../../../../../../../Pictures/produtonovo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="330.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Pictures/compra.png" />
+            <Image url="@../../../../../../../../Pictures/compra.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="79.0" fitWidth="77.0" layoutX="471.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Pictures/relatorios.png" />
+            <Image url="@../../../../../../../../Pictures/relatorios.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="72.0" fitWidth="70.0" layoutX="254.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Pictures/sair.png" />
+            <Image url="@../../../../../../../../Pictures/sair.png" />
          </image>
       </ImageView>
       <Label layoutX="25.0" layoutY="110.0" text="Cadastro de Clientes" />
@@ -42,7 +41,7 @@
       <Label layoutX="277.0" layoutY="347.0" text="Sair" />
       <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="35.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Pictures/novo%20cliente.png" />
+            <Image url="@../../../../../../../../../Pictures/novo%20cliente.png" />
          </image>
       </ImageView>
    </children>

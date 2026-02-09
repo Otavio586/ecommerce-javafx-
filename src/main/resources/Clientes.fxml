@@ -17,12 +17,23 @@
       </Label>
       <ImageView fitHeight="87.0" fitWidth="87.0" layoutX="39.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Pictures/clientenovo.png" />
+            <Image url="@../../../../../../../../../Pictures/clientenovo.png" />
          </image>
       </ImageView>
+
+
+
+
+
+
+
+
+
+
+       
       <ImageView fitHeight="89.0" fitWidth="87.0" layoutX="472.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Pictures/clientenovo.png" />
+            <Image url="@../../../../../../../../../Pictures/clientenovo.png" />
          </image>
       </ImageView>
       <TextField layoutX="348.0" layoutY="164.0" prefHeight="25.0" prefWidth="156.0" />
