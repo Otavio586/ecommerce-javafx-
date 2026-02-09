@@ -6,6 +6,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import java.io.IOException;
 
 
 public class MainController {
@@ -13,22 +14,22 @@ public class MainController {
     @FXML
     private BorderPane root;
 
-
     @FXML
-    public void initialize(){
-        carregarTela("Home.fxml");
-    }
-    @FXML
-    public void abrirHome() {
+    public void initialize() {
         carregarTela("Home.fxml");
     }
 
     @FXML
-    public void abrirProdutos() {
+    public void abrirHome() throws IOException {
+        carregarTela("Home.fxml");
+    }
+
+    @FXML
+    public void abrirProdutos() throws IOException {
         carregarTela ("Produtos.fxml");
     }
     @FXML
-    public void abrirClientes() {
+    public void abrirClientes() throws IOException {
         carregarTela ("Clientes.fxml");
     }
 

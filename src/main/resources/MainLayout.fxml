@@ -5,6 +5,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="708.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecommerce.controller.MainController">
    <top>
@@ -28,6 +29,17 @@
       </MenuBar>
    </top>
    <center>
-      <Label text="Tela Inicial" BorderPane.alignment="CENTER" />
+      <Label prefHeight="171.0" prefWidth="306.0" text="Sejam Bem Vindos!" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </center>
+   <bottom>
+      <Label text="Clique em um dos itens acima" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </bottom>
 </BorderPane>
