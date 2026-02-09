@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecommerce.controller.ProdutosController">
    <children>
       <Label layoutX="182.0" layoutY="48.0" text="Cadastro de Produtos:">
          <font>
@@ -41,7 +41,7 @@
       <TextField layoutX="182.0" layoutY="293.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="396.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../Pictures/caixa.png" />
+            <Image url="@../../../../../../../../Pictures/caixa.png" />
          </image>
       </ImageView>
    </children>
