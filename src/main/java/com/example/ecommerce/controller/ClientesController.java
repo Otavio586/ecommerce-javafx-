@@ -90,21 +90,54 @@ public class ClientesController {
     }
 
     @FXML
-    public void excluirCliente() {
-        Cliente selecionadoParaExcluir = tabelaClientes.getSelectionModel().getSelectedItem();
+    public void salvarCliente() {
+        try {
+            if (txtNome.getText().isEmpty() || txtCpf.getText().isEmpty()) {
+                exibirAlerta("Atenção", "Preencha Nome e CPF!", Alert.AlertType.WARNING);
+                return;
+            }
 
-        if (selecionadoParaExcluir == null) {
-            exibirAlerta("Aviso", "Selecione um cliente na tabela para excluir.", Alert.AlertType.WARNING);
+            Cliente c = (clienteSelecionado == null) ? new Cliente() : clienteSelecionado;
+
+            c.setNome(txtNome.getText());
+            c.setCpf(txtCpf.getText());
+            c.setTelefone(txtTelefone.getText());
+            c.setCep(txtCep.getText());
+            c.setRua(txtRua.getText());
+            c.setNumero(txtNumero.getText());
+            c.setBairro(txtBairro.getText());
+            c.setCidade(txtCidade.getText());
+            c.setEstado(txtEstado.getText());
+
+            if (clienteSelecionado == null) {
+                dao.salvar(c);
+                exibirAlerta("Sucesso", "Cliente salvo!", Alert.AlertType.INFORMATION);
+            } else {
+                dao.atualizar(c);
+                exibirAlerta("Sucesso", "Cliente atualizado!", Alert.AlertType.INFORMATION);
+            }
+
+            atualizarTabela();
+            limparCampos();
+        } catch (SQLException e) {
+            exibirAlerta("Erro", "Erro ao salvar no banco: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    public void excluirCliente() {
+        if (clienteSelecionado == null) {
+            exibirAlerta("Erro", "Selecione um cliente na tabela primeiro!", Alert.AlertType.WARNING);
             return;
         }
 
         try {
-            dao.deletar(selecionadoParaExcluir.getId());
-            exibirAlerta("Sucesso", "Cliente removido com sucesso.", Alert.AlertType.INFORMATION);
+            dao.deletar(clienteSelecionado.getId());
+            exibirAlerta("Sucesso", "Cliente removido!", Alert.AlertType.INFORMATION);
             atualizarTabela();
             limparCampos();
         } catch (SQLException e) {
-            exibirAlerta("Erro", "Não foi possível excluir o cliente.", Alert.AlertType.ERROR);
+            exibirAlerta("Erro", "Erro ao deletar: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 

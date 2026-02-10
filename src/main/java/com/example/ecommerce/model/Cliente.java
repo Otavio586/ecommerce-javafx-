@@ -10,6 +10,7 @@ public class Cliente {
     private String bairro;
     private String cidade;
     private String estado;
+    private String cep;
 
     public Cliente() {}
 
