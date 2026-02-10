@@ -7,6 +7,7 @@ module com.example.ecommerce {
     requires java.sql;
     requires mysql.connector.j;
 
+    opens com.example.ecommerce.model to javafx.base;
     opens com.example.ecommerce.controller to javafx.fxml;
     opens com.example.ecommerce to javafx.fxml;
     exports com.example.ecommerce;

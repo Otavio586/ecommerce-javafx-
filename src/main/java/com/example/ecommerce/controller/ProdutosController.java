@@ -7,8 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.rmi.server.ExportException;
-
 public class ProdutosController {
 
     @FXML
@@ -16,6 +14,9 @@ public class ProdutosController {
 
     @FXML
     private TextField txtPreco;
+
+    @FXML
+    private TextField txtQuantidade;
 
     @FXML
     private TableView<Produto> tabelaProdutos;
@@ -29,6 +30,9 @@ public class ProdutosController {
     @FXML
     private TableColumn<Produto, Double> colPreco;
 
+    @FXML
+    private TableColumn<Produto, Integer> colQuantidade;
+
     private ProdutoDAO dao = new ProdutoDAO();
 
     private Produto produtoSelecionado;
@@ -38,6 +42,7 @@ public class ProdutosController {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
+        colQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         atualizarTabela();
     }
 
@@ -50,26 +55,44 @@ public class ProdutosController {
     @FXML
     public void salvarProduto() {
         try {
+            String nome = txtNome.getText();
+            double preco = Double.parseDouble(txtPreco.getText().replace(",", "."));
+            int qtd = Integer.parseInt(txtQuantidade.getText());
+
             if (produtoSelecionado == null) {
-                dao.salvar(new Produto(txtNome.getText(), Double.parseDouble(txtPreco.getText())));
+                Produto novo = new Produto(nome, preco);
+                novo.setQuantidade(qtd);
+                dao.salvar(novo);
             } else {
-                produtoSelecionado.setNome(txtNome.getText());
-                produtoSelecionado.setPreco(Double.parseDouble(txtPreco));
+                produtoSelecionado.setNome(nome);
+                produtoSelecionado.setPreco(preco);
+                produtoSelecionado.setQuantidade(qtd);
+
                 dao.atualizar(produtoSelecionado);
             }
+
             atualizarTabela();
             limparCampos();
-        } catch (Exception e) { exibirAlerta("Erro", e.getMessage()); }
+            exibirAlerta("Sucesso", "Operação realizada com sucesso!");
+
+        } catch (Exception e) {
+            exibirAlerta("Erro", "Erro ao processar: " + e.getMessage());
+        }
     }
 
     @FXML
-    public void excluirPRoduto() {
-        if (produtoSelecionado != null) {
-            try {
-                dao.deletar(produtoSelecionado.getId());
-                atualizarTabela();
-                limparCampos();
-            } catch (Exception e) { exibiriAlerta("Erro", e.getMessage()); }
+    public void excluirProduto() {
+        if (produtoSelecionado == null) {
+            exibirAlerta("Seleção", "Selecione um produto na tabela para excluir.");
+            return;
+        }
+
+        try {
+            dao.deletar(produtoSelecionado.getId());
+            atualizarTabela();
+            limparCampos();
+        } catch (Exception e) {
+            exibirAlerta("Erro", "Erro ao excluir: " + e.getMessage());
         }
     }
 
@@ -79,19 +102,21 @@ public class ProdutosController {
         if (produtoSelecionado != null) {
             txtNome.setText(produtoSelecionado.getNome());
             txtPreco.setText(String.valueOf(produtoSelecionado.getPreco()));
+            txtQuantidade.setText(String.valueOf(produtoSelecionado.getQuantidade()));
         }
     }
 
     @FXML
-    public void limparCampos () {
+    public void limparCampos() {
         txtNome.clear();
         txtPreco.clear();
+        txtQuantidade.clear();
         produtoSelecionado = null;
         tabelaProdutos.getSelectionModel().clearSelection();
     }
 
     private void exibirAlerta(String titulo, String msg) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);
         alert.setContentText(msg);
         alert.show();

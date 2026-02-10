@@ -48,11 +48,18 @@ public class MainController {
 
     private void carregarTela(String fxml) {
         try {
-            root.setCenter(
-                    FXMLLoader.load(
-                            getClass().getResource("/" + fxml)
-                    ));
-        }   catch (Exception e) {
+            java.net.URL resource = getClass().getResource("/com/example/ecommerce/" + fxml);
+
+            if (resource == null) {
+                resource = getClass().getResource("/" + fxml);
+            }
+
+            if (resource != null) {
+                root.setCenter(FXMLLoader.load(resource));
+            } else {
+                System.err.println("Arquivo FXML não encontrado: " + fxml);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
