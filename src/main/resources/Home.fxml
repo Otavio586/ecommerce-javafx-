@@ -5,23 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecommerce.controller.HomeController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecommerce.controller.MainController">
    <children>
       <AnchorPane prefHeight="621.0" prefWidth="848.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="152.0" layoutX="331.0" layoutY="437.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="152.0" layoutX="43.0" layoutY="159.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
             <Label layoutX="277.0" layoutY="347.0" />
-            <Button layoutX="387.0" layoutY="549.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="53.0" text="Sair" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="152.0" layoutX="427.0" layoutY="159.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="152.0" layoutX="230.0" layoutY="159.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="152.0" layoutX="625.0" layoutY="159.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
-            <Button layoutX="672.0" layoutY="278.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Relatórios" />
-            <Button layoutX="468.0" layoutY="278.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Nova Venda" />
-            <Button layoutX="245.0" layoutY="278.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="Cadastro de Produtos" />
-            <Button layoutX="58.0" layoutY="278.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="Cadastro de Clientes" />
+            <Button layoutX="299.0" layoutY="286.0" mnemonicParsing="false" onAction="#abrirProdutos" text="Produtos" />
+            <Button layoutX="493.0" layoutY="286.0" mnemonicParsing="false" text="Vendas" />
+            <Button layoutX="670.0" layoutY="286.0" mnemonicParsing="false" text="Relatórios" />
+            <Button layoutX="139.0" layoutY="286.0" mnemonicParsing="false" onAction="#abrirClientes" text="Clientes" />
          </children>
       </AnchorPane>
    </children>

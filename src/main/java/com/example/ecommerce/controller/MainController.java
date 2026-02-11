@@ -3,11 +3,10 @@ package com.example.ecommerce.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.Node;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import java.io.IOException;
-
 
 public class MainController {
 
@@ -16,21 +15,20 @@ public class MainController {
 
     @FXML
     public void initialize() {
-        carregarTela("Home.fxml");
     }
 
     @FXML
-    public void abrirHome() throws IOException {
-        carregarTela("Home.fxml");
+    public void abrirProdutos(ActionEvent event) {
+        carregarTela("Produtos.fxml");
     }
 
     @FXML
-    public void abrirProdutos() throws IOException {
-        carregarTela ("Produtos.fxml");
+    public void abrirClientes(ActionEvent event) {
+        carregarTela("Clientes.fxml");
     }
     @FXML
-    public void abrirClientes() throws IOException {
-        carregarTela ("Clientes.fxml");
+    public void abrirHome(ActionEvent event) {
+        carregarTela("Home.fxml");
     }
 
     public void abrirAjuda(ActionEvent event) {
@@ -50,14 +48,11 @@ public class MainController {
         try {
             java.net.URL resource = getClass().getResource("/com/example/ecommerce/" + fxml);
 
-            if (resource == null) {
-                resource = getClass().getResource("/" + fxml);
-            }
-
             if (resource != null) {
-                root.setCenter(FXMLLoader.load(resource));
+                Node novaTela = FXMLLoader.load(resource);
+                root.setCenter(novaTela);
             } else {
-                System.err.println("Arquivo FXML não encontrado: " + fxml);
+                System.err.println("FXML não encontrado: " + fxml);
             }
         } catch (Exception e) {
             e.printStackTrace();

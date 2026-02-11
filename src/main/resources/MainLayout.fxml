@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
@@ -28,13 +31,6 @@
         </menus>
       </MenuBar>
    </top>
-   <center>
-      <Label prefHeight="171.0" prefWidth="306.0" text="Sejam Bem Vindos!" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-   </center>
    <bottom>
       <Label text="Clique em um dos itens acima" BorderPane.alignment="CENTER">
          <font>
@@ -42,4 +38,20 @@
          </font>
       </Label>
    </bottom>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="95.0" layoutY="249.0" mnemonicParsing="false" onAction="#abrirClientes" text="Clientes" />
+            <Button layoutX="244.0" layoutY="249.0" mnemonicParsing="false" onAction="#abrirProdutos" text="Produtos" />
+            <Button layoutX="376.0" layoutY="249.0" mnemonicParsing="false" text="Venda" />
+            <Button layoutX="513.0" layoutY="249.0" mnemonicParsing="false" text="Relatórios" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </AnchorPane>
+   </center>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </BorderPane>

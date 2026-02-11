@@ -10,66 +10,35 @@ import java.sql.SQLException;
 public class ClientesController {
 
 
-    @FXML private TextField txtNome, txtCpf, txtTelefone;
-    @FXML private TextField txtRua, txtNumero, txtBairro, txtCidade, txtEstado, txtCep;
+    @FXML private TextField txtNome, txtCpf, txtTelefone, txtEmail, txtCep, txtCidade , txtEstado;
 
 
     @FXML private TableView<Cliente> tabelaClientes;
     @FXML private TableColumn<Cliente, Integer> colId;
-    @FXML private TableColumn<Cliente, String> colNome, colCpf, colCidade, colCep;
+    @FXML private TableColumn<Cliente, String> colNome, colCpf, colTelefone , colEmail , colCep , colCidade, colEstado;
 
     private ClienteDAO dao = new ClienteDAO();
     private Cliente clienteSelecionado;
 
     @FXML
     public void initialize() {
-        // Configura as colunas da tabela para ler os atributos da classe Cliente
+
+        try {
+            dao = new ClienteDAO();
+            atualizarTabela();
+        } catch (Exception e) {
+            exibirAlerta("Erro de Conexão", "Não foi possível conectar ao banco de dados!", Alert.AlertType.ERROR);
+        }
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-        colCidade.setCellValueFactory(new PropertyValueFactory<>("cidade"));
+        colTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colCep.setCellValueFactory(new PropertyValueFactory<>("cep"));
+        colCidade.setCellValueFactory(new PropertyValueFactory<>("cidade"));
+        colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
         atualizarTabela();
-    }
-
-    @FXML
-    public void salvarCliente() {
-        try {
-            // Validação básica
-            if (txtNome.getText().isEmpty() || txtCpf.getText().isEmpty()) {
-                exibirAlerta("Atenção", "Nome e CPF são obrigatórios!", Alert.AlertType.WARNING);
-                return;
-            }
-
-
-            Cliente c = (clienteSelecionado == null) ? new Cliente() : clienteSelecionado;
-
-
-            c.setNome(txtNome.getText());
-            c.setCpf(txtCpf.getText());
-            c.setTelefone(txtTelefone.getText());
-            c.setRua(txtRua.getText());
-            c.setNumero(txtNumero.getText());
-            c.setBairro(txtBairro.getText());
-            c.setCidade(txtCidade.getText());
-            c.setEstado(txtEstado.getText());
-            c.setCep(txtCep.getText());
-
-            if (clienteSelecionado == null) {
-                dao.salvar(c);
-                exibirAlerta("Sucesso", "Cliente cadastrado!", Alert.AlertType.INFORMATION);
-            } else {
-                dao.atualizar(c);
-                exibirAlerta("Sucesso", "Dados do cliente atualizados!", Alert.AlertType.INFORMATION);
-            }
-
-            atualizarTabela();
-            limparCampos();
-
-        } catch (SQLException e) {
-            exibirAlerta("Erro", "Falha ao processar no banco: " + e.getMessage(), Alert.AlertType.ERROR);
-        }
     }
 
     @FXML
@@ -80,12 +49,10 @@ public class ClientesController {
             txtNome.setText(clienteSelecionado.getNome());
             txtCpf.setText(clienteSelecionado.getCpf());
             txtTelefone.setText(clienteSelecionado.getTelefone());
-            txtRua.setText(clienteSelecionado.getRua());
-            txtNumero.setText(clienteSelecionado.getNumero());
-            txtBairro.setText(clienteSelecionado.getBairro());
+            txtEmail.setText(clienteSelecionado.getEmail());
+            txtCep.setText(clienteSelecionado.getCep());
             txtCidade.setText(clienteSelecionado.getCidade());
             txtEstado.setText(clienteSelecionado.getEstado());
-            txtCep.setText(clienteSelecionado.getCep());
         }
     }
 
@@ -102,10 +69,8 @@ public class ClientesController {
             c.setNome(txtNome.getText());
             c.setCpf(txtCpf.getText());
             c.setTelefone(txtTelefone.getText());
+            c.setEmail(txtEmail.getText());
             c.setCep(txtCep.getText());
-            c.setRua(txtRua.getText());
-            c.setNumero(txtNumero.getText());
-            c.setBairro(txtBairro.getText());
             c.setCidade(txtCidade.getText());
             c.setEstado(txtEstado.getText());
 
@@ -143,7 +108,9 @@ public class ClientesController {
 
     private void atualizarTabela() {
         try {
-            tabelaClientes.getItems().setAll(dao.listarTodos());
+            if (dao != null) {
+                tabelaClientes.getItems().setAll(dao.listarTodos());
+            }
         } catch (SQLException e) {
             System.err.println("Erro ao carregar tabela: " + e.getMessage());
         }
@@ -153,13 +120,12 @@ public class ClientesController {
         txtNome.clear();
         txtCpf.clear();
         txtTelefone.clear();
-        txtRua.clear();
-        txtNumero.clear();
-        txtBairro.clear();
+        txtCep.clear();
+        txtEmail.clear();
         txtCidade.clear();
         txtEstado.clear();
-        txtCep.clear();
         clienteSelecionado = null;
+        tabelaClientes.getSelectionModel().clearSelection();
     }
 
     private void exibirAlerta(String titulo, String msg, Alert.AlertType tipo) {
