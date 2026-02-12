@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecommerce.controller.RelatoriosController">
+    <children>
+        <Label layoutX="25.0" layoutY="20.0" text="Relatório de Vendas">
+            <font> <Font name="System Bold" size="22.0" /> </font>
+        </Label>
+
+        <HBox layoutX="25.0" layoutY="65.0" spacing="10.0" alignment="CENTER_LEFT">
+            <children>
+                <Label text="De:" />
+                <DatePicker fx:id="dpDataInicio" prefWidth="130.0" />
+                <Label text="Até:" />
+                <DatePicker fx:id="dpDataFim" prefWidth="130.0" />
+                <Button onAction="#filtrarVendas" style="-fx-background-color: #3498db; -fx-cursor: hand;" text="Filtrar" textFill="WHITE" />
+                <Button onAction="#atualizarRelatorio" style="-fx-cursor: hand;" text="Limpar" />
+            </children>
+        </HBox>
+
+        <TableView fx:id="tabelaRelatorio" layoutX="25.0" layoutY="110.0" prefHeight="350.0" prefWidth="700.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="60.0" text="ID" />
+                <TableColumn fx:id="colProduto" prefWidth="240.0" text="Produto" />
+                <TableColumn fx:id="colQtd" prefWidth="90.0" text="Quantidade" />
+                <TableColumn fx:id="colTotal" prefWidth="140.0" text="Valor Total" />
+                <TableColumn fx:id="colData" prefWidth="150.0" text="Data/Hora" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

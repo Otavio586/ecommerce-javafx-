@@ -5,17 +5,32 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecommerce.controller.MainController">
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecommerce.controller.HomeController">
    <children>
-      <AnchorPane prefHeight="621.0" prefWidth="848.0">
-         <children>
-            <Label layoutX="277.0" layoutY="347.0" />
-            <Button layoutX="299.0" layoutY="286.0" mnemonicParsing="false" onAction="#abrirProdutos" text="Produtos" />
-            <Button layoutX="493.0" layoutY="286.0" mnemonicParsing="false" text="Vendas" />
-            <Button layoutX="670.0" layoutY="286.0" mnemonicParsing="false" text="Relatórios" />
-            <Button layoutX="139.0" layoutY="286.0" mnemonicParsing="false" onAction="#abrirClientes" text="Clientes" />
-         </children>
+      <AnchorPane prefHeight="415.0" prefWidth="373.0">
+      
+          <children>
+              <Label layoutX="148.0" layoutY="82.0" text="Menu Principal">
+                  <font>
+                      <Font size="28" />
+                  </font>
+              </Label>
+      
+              <Button layoutX="151.0" layoutY="159.0" onAction="#abrirClientes" prefHeight="40" prefWidth="180" text="Clientes" />
+      
+              <Button layoutX="151.0" layoutY="220.0" onAction="#abrirProdutos" prefHeight="40" prefWidth="180" text="Produtos" />
+      
+              <Button layoutX="151.0" layoutY="281.0" onAction="#abrirVendas" prefHeight="40" prefWidth="180" text="Vendas" />
+      
+              <Button layoutX="150.0" layoutY="347.0" onAction="#abrirRelatorios" prefHeight="40" prefWidth="180" text="Relatórios" />
+          </children>
+      
+          <padding>
+              <Insets bottom="20" left="20" right="20" top="20" />
+          </padding>
       </AnchorPane>
    </children>
    <padding>
